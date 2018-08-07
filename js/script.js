@@ -56,8 +56,8 @@ var obj = {
     var controlsSong = $('.controls .song');
     var controlsBand = $('.controls .band');
     var radio = $('audio');
-    var imageLink;
-    var artistNameAndSong;
+    var imageLink = "";
+    var artistNameAndSong = "";
 
     // get shoutcast info
     $.get("https://api.codetabs.com/cors-proxy/" + obj.props.ip + "", function(data) {
