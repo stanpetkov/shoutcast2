@@ -50,27 +50,26 @@ var obj = {
   // basic functionality
   options: () => {
 
-    var artistImage = $('#artist-image'),
-        controls = $('.controls'),
-        radioName = $('.radio-name'),
-        controlsSong = $('.controls .song'),
-        controlsBand = $('.controls .band'),
-        radio = $('audio'),
-        imageLink = "",
-        artistNameAndSong = "";
+    var artistImage = $('#artist-image');
+    var controls = $('.controls');
+    var radioName = $('.radio-name');
+    var controlsSong = $('.controls .song');
+    var controlsBand = $('.controls .band');
+    var radio = $('audio');
+    var imageLink;
+    var artistNameAndSong;
 
     // get shoutcast info
     $.get("https://api.codetabs.com/cors-proxy/" + obj.props.ip + "", function(data) {
 
-    var result = $(data).find("a[href^='current']").text(),
-        artistName = artistNameAndSong.slice(0, artistNameAndSong.indexOf("-")),
-        songName = result.substr(result.indexOf("-") + 2),
-        streamName = data.substr(data.indexOf("Name:") + 104),
-        streamNameResult = streamName.substr(0, streamName.indexOf('</a>')),
-        songSize = $('.song'),
-        bandNameSize = $('.band'),
-        containerFluid = $('.container-fluid');
-
+    var result = $(data).find("a[href^='current']").text();
+    var artistName = artistNameAndSong.slice(0, artistNameAndSong.indexOf("-"));
+    var songName = result.substr(result.indexOf("-") + 2);
+    var streamName = data.substr(data.indexOf("Name:") + 104);
+    var streamNameResult = streamName.substr(0, streamName.indexOf('</a>'));
+    var songSize = $('.song');
+    var bandNameSize = $('.band');
+    var containerFluid = $('.container-fluid');
     artistNameAndSong = result.substr(result.indexOf("g:") + 1);
     artistName = result.substr(0, result.indexOf(' -')).trim();
     artistName.trim();
